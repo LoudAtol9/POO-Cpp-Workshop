@@ -9,6 +9,7 @@ private:
 	std::string rua;
 	std::string bairo;
 	int cep;
+	int numero;
 	std::string pais;
 	std::string estado;
 	std::string cidade;
@@ -22,6 +23,9 @@ public:
 	
 	std::string getBairo();
 	void setBairo(std::string new_bairo);
+	
+	int getNumero();
+	void setNumero(int new_numero);
 	
 	int getCep();
 	void setCep(int new_cep);
