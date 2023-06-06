@@ -34,6 +34,8 @@ public:
 	
 	std::string getRua();
 	void setRua(std::string new_rua);
+	
+	std::string toString();
 }
 
 #endif // ENDERECO_H
