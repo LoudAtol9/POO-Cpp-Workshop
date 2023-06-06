@@ -7,10 +7,23 @@
 class SocioTorcedor
 {
 private:
-    
+    double valorExtra;
+    double valorInicial;
+    double valorFinal;
 public:
-    SocioTorcedor(/* args */);
+    SocioTorcedor();
     ~SocioTorcedor();
+    
+    double getValorExtra();
+    void setValorExtra(double newValorExtra);
+    
+    double getValorInicial();
+    void setValorInicial(double newValorInicial);
+    
+    double getValorFinal();
+    void setValorFinal(double newValorFinal);
+    
+    void calculaValorFinal();
 };
 
 
