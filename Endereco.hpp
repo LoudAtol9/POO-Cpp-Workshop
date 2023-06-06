@@ -32,8 +32,8 @@ public:
 	std::string getEstado();
 	void setEstado(std::string new_estado);
 	
-	std::string getRua();
-	void setRua(std::string new_rua);
+	std::string getCidade();
+	void setCidade(std::string new_cidade);
 	
 	std::string toString();
 }
