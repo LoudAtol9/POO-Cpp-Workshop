@@ -21,7 +21,7 @@ public:
 	void setRua(std::string new_rua);
 	
 	std::string getBairo();
-	void setBairo(std::string new_Bairo);
+	void setBairo(std::string new_bairo);
 	
 	int getCep();
 	void setCep(int new_cep);
