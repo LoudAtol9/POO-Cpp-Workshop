@@ -15,13 +15,13 @@ public:
     ~SocioTorcedor();
     
     double getValorExtra();
-    void setValorExtra(double newValorExtra);
+    void setValorExtra(double new_ValorExtra);
     
     double getValorInicial();
-    void setValorInicial(double newValorInicial);
+    void setValorInicial(double new_ValorInicial);
     
     double getValorFinal();
-    void setValorFinal(double newValorFinal);
+    void setValorFinal(double new_ValorFinal);
     
     void calculaValorFinal();
 };
