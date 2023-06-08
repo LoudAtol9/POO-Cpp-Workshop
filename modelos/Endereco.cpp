@@ -2,6 +2,19 @@
 
 Endereco::Endereco(){}
 
+Endereco::Endereco(Endereco* ptr_endereco)
+{
+	Endereco::rua = ptr_endereco->getRua();
+	Endereco::bairo = ptr_endereco->getBairo();
+	Endereco::cep = ptr_endereco->getCep();
+	Endereco::numero = ptr_endereco->getNumero();
+	Endereco::pais = ptr_endereco->getPais();
+	Endereco::estado = ptr_endereco->getEstado();
+	Endereco::cidade = ptr_endereco->getCidade();
+}
+
+Endereco::~Endereco(){}
+
 std::string Endereco::getRua()
 {
 	return Endereco::rua;
@@ -24,7 +37,7 @@ int Endereco::getCep()
 {
 	return Endereco::cep;
 }
-void Endereco::setCep(int new_cep);
+void Endereco::setCep(int new_cep)
 {
 	Endereco::cep = new_cep;
 }
@@ -33,7 +46,7 @@ int Endereco::getNumero()
 {
 	return Endereco::numero;
 }
-void Endereco::setNumero(int new_numero);
+void Endereco::setNumero(int new_numero)
 {
 	Endereco::numero = new_numero;
 }
@@ -44,7 +57,7 @@ std::string Endereco::getPais()
 }
 void Endereco::setPais(std::string new_pais)
 {
-	Endereco::pais = pais;
+	Endereco::pais = new_pais;
 }
 	
 std::string Endereco::getEstado()
@@ -58,9 +71,9 @@ void Endereco::setEstado(std::string new_estado)
 	
 std::string Endereco::getCidade()
 {
-	return Endereco::cidade
+	return Endereco::cidade;
 }
-void Endereco::setCidade(std::string new_cidade);
+void Endereco::setCidade(std::string new_cidade)
 {
 	Endereco::cidade = new_cidade;
 }
@@ -69,5 +82,5 @@ std::string Endereco::toString()
 {
 	return "Pais: " + Endereco::pais + "\nEstado: " + Endereco::estado
 		   + "\nCidade: " + Endereco::cidade + "\nBairo: " +  Endereco::bairo
-		   + "\nRua: " + Endereco::rua + "\nNumero: " + Endereco::numero;
+		   + "\nRua: " + Endereco::rua + "\nNumero: " + std::to_string(Endereco::numero);
 }

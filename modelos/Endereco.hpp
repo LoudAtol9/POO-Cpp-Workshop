@@ -16,6 +16,7 @@ private:
 	
 public:
 	Endereco();
+	Endereco(Endereco* ptr_endereco);	
 	~Endereco();
 	
 	std::string getRua();
@@ -40,6 +41,6 @@ public:
 	void setCidade(std::string new_cidade);
 	
 	std::string toString();
-}
+};
 
 #endif // ENDERECO_H
