@@ -8,6 +8,7 @@ Pessoa::Pessoa(Pessoa* ptr_pessoa)
     Pessoa::cpf = ptr_pessoa->getCpf();
     Pessoa::dataNascimento = ptr_pessoa->getDataNascimento();
     Pessoa::telefone = ptr_pessoa->getTelefone();
+    Pessoa::listaEndereco.setSize(sizeof(Endereco));
     Pessoa::listaEndereco = ptr_pessoa->getListaEndereco(); 
 }
 
@@ -16,7 +17,8 @@ Pessoa::Pessoa(std::string new_nome, std::string new_cpf, Data new_dataNasciment
     Pessoa::setNome(new_nome);
     Pessoa::setCpf(new_cpf);
     Pessoa::setDataNascimento(new_dataNascimento);
-    Pessoa::setTelefone(new_telefone); 
+    Pessoa::setTelefone(new_telefone);
+    Pessoa::listaEndereco.setSize(sizeof(Endereco)); 
 }
 
 Pessoa::~Pessoa(){}
@@ -89,12 +91,12 @@ Endereco Pessoa::getEndereco(int index)
 MyLinkedList Pessoa::getListaEndereco()
 {
     int i;
-    int len = Pessoa::listaEndereco.getSize(); 
+    int len = Pessoa::listaEndereco.getlength(); 
 
     Endereco* ptr_endereco;
     Endereco* ptr_endereco_copy;
 
-    MyLinkedList listRetorno = new MyLinkedList();
+    MyLinkedList listRetorno(sizeof(Endereco));
 
     for (i = 0; i <= len; i++)
     {

@@ -14,12 +14,33 @@ class MyLinkedList
 {
 private:
     struct cel* head = NULL;
-    int size = 0;
+    int length = 0;
+    size_t size = 0;
+
+    void* deepCopyVoid(void* void_ptr)
+    {
+        int i = 0;
+        int razao = MyLinkedList::size / sizeof(char);
+
+        char* char_ptr = (char*) void_ptr;
+        char* char_ptr_copy = (char*) malloc(MyLinkedList::size);
+
+        if (i >= razao)
+            free(char_ptr_copy);
+        
+        for (i = 0; i < razao; i++)
+        {
+            char_ptr_copy[i] = char_ptr[i];
+        }
+
+        return (void*) char_ptr_copy;
+    }
 
 public:
     MyLinkedList();
-    MyLinkedList(void* info_ptr);
-    MyLinkedList(void** info_ptr_array, int qnt);
+    MyLinkedList(size_t tipo);
+    MyLinkedList(size_t tipo, void* info_ptr);
+    MyLinkedList(size_t tipo, void** info_ptr_array, int qnt);
     ~MyLinkedList();
 
     void* busca(int index);
@@ -28,11 +49,12 @@ public:
     void insere(void* info_ptr, int index);
 
     void remove(int index);
-    void remove(void* info_ptr);
 
-    int getSize();
+    MyLinkedList deepCopy();
 
-    MyLinkedList copy(size_t tam);
+    int getlength();
+    size_t getSize();
+    void setSize(size_t tipo);
 };
 
 

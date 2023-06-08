@@ -10,6 +10,7 @@ private:
     double valorExtra;
     double valorInicial;
     double valorFinal;
+    MyLinkedList pessoasIndicadas;
     
 public:
     SocioTorcedor();
