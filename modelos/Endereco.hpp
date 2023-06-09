@@ -2,6 +2,7 @@
 #define ENDERECO_H
 
 #include <iostream>
+#include <regex>
 
 class Endereco
 {

@@ -2,6 +2,7 @@
 #define PESSOA_H
 
 #include <iostream>
+#include <regex>
 #include "../modelos/Data.hpp"
 #include "../modelos/Endereco.hpp"
 #include "../utils/MyLinkedList.hpp"

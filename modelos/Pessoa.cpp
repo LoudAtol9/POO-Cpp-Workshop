@@ -29,7 +29,11 @@ Pessoa::~Pessoa()
 
 void Pessoa::setNome(std::string new_nome)
 {
-    Pessoa::nome = new_nome;
+    std::regex str_regex("[a-zA-Z][a-zA-Z]* ?");
+
+    if (std::regex_match(new_nome, str_regex))
+        Pessoa::nome = new_nome;
+
 }
 
 std::string Pessoa::getNome()
@@ -40,7 +44,10 @@ std::string Pessoa::getNome()
 
 void Pessoa::setCpf(std::string new_cpf)
 {
-    Pessoa::cpf = new_cpf;
+    std::regex str_regex("[0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}[-]?[0-9]{2}");
+
+    if (std::regex_match(new_cpf, str_regex))
+        Pessoa::cpf = new_cpf;
 }
 
 std::string Pessoa::getCpf()
@@ -69,7 +76,9 @@ Data Pessoa::getDataNascimento()
 
 void Pessoa::setTelefone(std::string new_telefone)
 {
-    Pessoa::telefone = new_telefone;
+    std::regex str_regex("^(?[1-9]{2})? ?[0-9]{5}[- ]?[0-9]{4}$");
+    if (std::regex_match(new_telefone, str_regex))
+        Pessoa::telefone = new_telefone;
 }
 
 std::string Pessoa::getTelefone()
