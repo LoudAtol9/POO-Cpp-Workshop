@@ -10,6 +10,13 @@ struct cel
 };
 
 
+/*
+ * Lista Linkada:
+ *
+ * Condições:
+ * - (para elementos do mesmo tipo)
+ * - (para elementos do mesmo tamanho)
+ */
 class MyLinkedList
 {
 private:

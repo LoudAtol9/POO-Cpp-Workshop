@@ -2,13 +2,14 @@
 #define SOCIO_NORMAL_H
 
 #include <iostream>
-#include "SocioTorcedor.hpp"
+#include "../modelos/SocioTorcedor.hpp"
 
 class SocioNormal : public SocioTorcedor
 {   
 public:
     SocioNormal();
     SocioNormal(std::string nome, std::string cpf);
+    SocioNormal(SocioTorcedor* s);
 
     ~SocioNormal();
     

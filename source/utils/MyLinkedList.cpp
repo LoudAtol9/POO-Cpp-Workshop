@@ -1,12 +1,17 @@
 #include "MyLinkedList.hpp"
 
 /*
- * Não usar esse construtor caso queira ter todas as funções da classe
+ * Se usar o construtor padrao use "setSize" e passe o sizeof
  */
-MyLinkedList::MyLinkedList(){}
+MyLinkedList::MyLinkedList()
+{
+    MyLinkedList::length = 0;
+    MyLinkedList::size = 0;
+}
 
 MyLinkedList::MyLinkedList(size_t tipo)
 {
+    MyLinkedList::length = 0;
     MyLinkedList::size = tipo;
 }
 
@@ -31,11 +36,18 @@ MyLinkedList::~MyLinkedList()
 
 
 
-
+/*
+ * Retorna um ponteiro allocado por malloc( )
+ * Caso queira desalocar use free( )
+ * Senão irá ocasionar vazamento de memoria
+ */
 void* MyLinkedList::busca(int index)
 {
     int i = 0;
     struct cel* cel_ptr;
+
+    if (index >= MyLinkedList::length || index < 0) 
+        return NULL;
 
     for (cel_ptr = MyLinkedList::head; i < index; cel_ptr = cel_ptr->prox)
         i++;
@@ -45,6 +57,10 @@ void* MyLinkedList::busca(int index)
 
 
 
+/*
+ * Cria uma cópia do conteúdo do ptr (info_ptr)
+ * e o adiciona o final da lista
+ */
 void MyLinkedList::insere(void* info_ptr)
 {
     struct cel* ptr;
@@ -64,13 +80,17 @@ void MyLinkedList::insere(void* info_ptr)
     MyLinkedList::length++;
 }
 
+/*
+ * Cria uma cópia do conteúdo do ptr (info_ptr)
+ * e o adiciona no ponto especificado (index)
+ */
 void MyLinkedList::insere(void* info_ptr, int index)
 {
     int i = 0;
     struct cel* ptr = NULL;
     struct cel* new_ptr = NULL;
 
-    if (index > MyLinkedList::length || index < 0) 
+    if (index >= MyLinkedList::length || index < 0) 
         return;
 
     new_ptr = new struct cel;
@@ -94,14 +114,16 @@ void MyLinkedList::insere(void* info_ptr, int index)
 }
 
 
-
+/*
+ * Remove o elemento na posicao indicada
+ */
 void MyLinkedList::remove(int index)
 {
     int i = 0;
     struct cel* ptr;
     struct cel* aux_ptr;
 
-    if (index > MyLinkedList::length || index < 0) 
+    if (index >= MyLinkedList::length || index < 0) 
         return;
     else if (index == 0)
     {
@@ -123,7 +145,9 @@ void MyLinkedList::remove(int index)
 }
 
 
-
+/*
+ * Limpa todo conteúdo da lista
+ */
 void MyLinkedList::deleteLinkedList()
 {
     struct cel* ptr;
@@ -142,6 +166,10 @@ void MyLinkedList::deleteLinkedList()
 }
 
 
+/*
+ * Copia toda a classe e retorna uma 
+ * nova instancia dela
+ */
 MyLinkedList MyLinkedList::deepCopy()
 {
     int i = 0;
@@ -160,16 +188,25 @@ MyLinkedList MyLinkedList::deepCopy()
 }
 
 
+/*
+ * Retorna o tamanho da lista
+ */
 int MyLinkedList::getlength()
 {
     return MyLinkedList::length;
 }
 
+/*
+ * Retorna o tamanho do objeto armazenado dentro da lista
+ */
 size_t MyLinkedList::getSize()
 {
     return MyLinkedList::size;
 }
 
+/*
+ * Declare o tipo que vai ser armazenado na lista linkada
+ */
 void MyLinkedList::setSize(size_t tipo)
 {
     if (MyLinkedList::size == 0)

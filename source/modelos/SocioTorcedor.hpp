@@ -2,7 +2,7 @@
 #define SOCIO_TORCEDOR_H
 
 #include <iostream>
-#include "Pessoa.hpp"
+#include "../modelos/Pessoa.hpp"
 
 class SocioTorcedor : public Pessoa
 {
@@ -11,12 +11,15 @@ protected:
     double valorInicial;
     double valorFinal;
 
+    Data dataIngresso;
+
     int limiteIndicacao;
     MyLinkedList pessoasIndicadas;
     
 public:
     SocioTorcedor();
     SocioTorcedor(std::string nome, std::string cpf);
+    SocioTorcedor(Pessoa* p);
 
     ~SocioTorcedor();
     
@@ -28,13 +31,17 @@ public:
     
     double getValorFinal();
 
+    Data getDataIngresso();
+    void setDataIngresso(Data data);
+
     Pessoa getPessoaIndicada(int index);
     void setPessoaIndicada(Pessoa Indicada);
+
+    MyLinkedList getListaIndicados();
 
     void calculaValorFinal();
 
     std::string toString();
-
 
 };
 

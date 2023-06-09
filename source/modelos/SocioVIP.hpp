@@ -2,13 +2,14 @@
 #define SOCIO_VIP_H
 
 #include <iostream>
-#include "SocioTorcedor.hpp"
+#include "../modelos/SocioTorcedor.hpp"
 
 class SocioVIP : public SocioTorcedor
 {   
 public:
     SocioVIP();
     SocioVIP(std::string nome, std::string cpf);
+    SocioVIP(SocioTorcedor* s);
 
     ~SocioVIP();
 

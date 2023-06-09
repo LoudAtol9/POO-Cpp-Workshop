@@ -1,4 +1,5 @@
-#include "SocioTorcedor.hpp"
+#include "../modelos/SocioTorcedor.hpp"
+
 
 SocioTorcedor::SocioTorcedor(){}
 
@@ -11,7 +12,10 @@ SocioTorcedor::SocioTorcedor(std::string nome, std::string cpf)
 SocioTorcedor::~SocioTorcedor()
 {
 	SocioTorcedor::~Pessoa();
+	SocioTorcedor::pessoasIndicadas.~MyLinkedList();
 }
+
+
 
 double SocioTorcedor::getValorExtra()
 {
@@ -24,6 +28,8 @@ void SocioTorcedor::setValorExtra(double new_valorExtra)
 	SocioTorcedor::calculaValorFinal();
 }
 
+
+
 double SocioTorcedor::getValorInicial()
 {
 	return SocioTorcedor::valorInicial;
@@ -35,10 +41,26 @@ void SocioTorcedor::setValorInicial(double new_valorInicial)
 	SocioTorcedor::calculaValorFinal();
 }
 
+
+
 double SocioTorcedor::getValorFinal()
 {
 	return SocioTorcedor::valorFinal;
 }
+
+
+
+Data SocioTorcedor::getDataIngresso()
+{
+	return SocioTorcedor::dataIngresso;
+}
+
+void SocioTorcedor::setDataIngresso(Data data)
+{
+	SocioTorcedor::dataIngresso = data;
+}
+
+
 
 Pessoa SocioTorcedor::getPessoaIndicada(int index)
 {
@@ -60,11 +82,16 @@ Pessoa SocioTorcedor::getPessoaIndicada(int index)
 void SocioTorcedor::setPessoaIndicada(Pessoa Indicada)
 {
 	if (SocioTorcedor::pessoasIndicadas.getlength() == SocioTorcedor::limiteIndicacao)
-		return;
+		std::cout << "Ja atingiu o limite de pessoas indicadas";
 	
 	Pessoa* new_ptr = new Pessoa(&Indicada);
     SocioTorcedor::pessoasIndicadas.insere(new_ptr);
 	delete new_ptr;
+}
+
+MyLinkedList SocioTorcedor::getListaIndicados()
+{
+	return SocioTorcedor::pessoasIndicadas.deepCopy();
 }
 
 void SocioTorcedor::calculaValorFinal()
