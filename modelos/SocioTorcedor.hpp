@@ -6,14 +6,18 @@
 
 class SocioTorcedor : public Pessoa
 {
-private:
+protected:
     double valorExtra;
     double valorInicial;
     double valorFinal;
+
+    int limiteIndicacao;
     MyLinkedList pessoasIndicadas;
     
 public:
     SocioTorcedor();
+    SocioTorcedor(std::string nome, std::string cpf);
+
     ~SocioTorcedor();
     
     double getValorExtra();
@@ -23,9 +27,15 @@ public:
     void setValorInicial(double new_ValorInicial);
     
     double getValorFinal();
-    void setValorFinal(double new_ValorFinal);
-    
+
+    Pessoa getPessoaIndicada(int index);
+    void setPessoaIndicada(Pessoa Indicada);
+
     void calculaValorFinal();
+
+    std::string toString();
+
+
 };
 
 

@@ -1,15 +1,15 @@
 #ifndef PESSOA_H
 #define PESSOA_H
 
+#include <iostream>
 #include "../modelos/Data.hpp"
 #include "../modelos/Endereco.hpp"
 #include "../utils/MyLinkedList.hpp"
-#include <iostream>
 
 
 class Pessoa
 {
-private:
+protected:
     std::string nome;
     std::string cpf;
     Data dataNascimento;
@@ -40,7 +40,7 @@ public:
 
     MyLinkedList getListaEndereco();
 
-    std::string toString();
+    std::string virtual toString();
 };  
 
 

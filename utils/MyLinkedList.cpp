@@ -24,7 +24,10 @@ MyLinkedList::MyLinkedList(size_t tipo, void** new_info, int qnt)
         MyLinkedList::insere(new_info[i]);
 }
 
-MyLinkedList::~MyLinkedList(){}
+MyLinkedList::~MyLinkedList()
+{
+    MyLinkedList::deleteLinkedList();
+}
 
 
 
@@ -121,6 +124,24 @@ void MyLinkedList::remove(int index)
 
 
 
+void MyLinkedList::deleteLinkedList()
+{
+    struct cel* ptr;
+    struct cel* ptr_prox;
+
+    for (ptr = MyLinkedList::head; ptr != NULL; ptr = ptr_prox)
+    {
+        ptr_prox = ptr->prox;
+        free(ptr->info);
+        delete ptr;
+    }
+
+    MyLinkedList::head = NULL;
+
+    return;
+}
+
+
 MyLinkedList MyLinkedList::deepCopy()
 {
     int i = 0;
@@ -129,10 +150,10 @@ MyLinkedList MyLinkedList::deepCopy()
     MyLinkedList listaRetorno = MyLinkedList(MyLinkedList::size);
 
     // Percore a lista linkada
-    for (cel_ptr = MyLinkedList::head; i < MyLinkedList::length; cel_ptr = cel_ptr->prox)
+    for (cel_ptr = MyLinkedList::head; i < MyLinkedList::length && cel_ptr != NULL; cel_ptr = cel_ptr->prox)
     {
         i++;
-        listaRetorno.insere(MyLinkedList::deepCopyVoid(cel_ptr->info));
+        listaRetorno.insere((MyLinkedList::deepCopyVoid(cel_ptr->info)));
     }
     
     return listaRetorno;

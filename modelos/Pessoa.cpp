@@ -21,7 +21,10 @@ Pessoa::Pessoa(std::string new_nome, std::string new_cpf, Data new_dataNasciment
     Pessoa::listaEndereco.setSize(sizeof(Endereco)); 
 }
 
-Pessoa::~Pessoa(){}
+Pessoa::~Pessoa()
+{
+    Pessoa::listaEndereco.~MyLinkedList();
+}
 
 
 void Pessoa::setNome(std::string new_nome)
@@ -79,12 +82,14 @@ void Pessoa::setEndereco(Endereco new_endereco)
 {
     Endereco* new_ptr = new Endereco(&new_endereco);
     Pessoa::listaEndereco.insere(new_ptr);
+    delete new_ptr;
 }
 
 Endereco Pessoa::getEndereco(int index)
 {
     Endereco* ptr = (Endereco*) Pessoa::listaEndereco.busca(index);
     Endereco elem(ptr);
+    free(ptr); 
     return elem;
 }
 

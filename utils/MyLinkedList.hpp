@@ -27,6 +27,7 @@ private:
 
         if (i >= razao)
             free(char_ptr_copy);
+            return NULL;
         
         for (i = 0; i < razao; i++)
         {
@@ -49,6 +50,7 @@ public:
     void insere(void* info_ptr, int index);
 
     void remove(int index);
+    void deleteLinkedList();
 
     MyLinkedList deepCopy();
 
