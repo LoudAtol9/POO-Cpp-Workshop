@@ -9,7 +9,7 @@ RUN apt-get install -y \
       build-essential \
       make \
       git
-ENV USER=erad USER_ID=1000 USER_GID=1000
+ENV USER=grupo7 USER_ID=1000 USER_GID=1000
 
 RUN groupadd --gid "${USER_GID}" "${USER}" && \
     useradd \
@@ -21,10 +21,14 @@ RUN groupadd --gid "${USER_GID}" "${USER}" && \
       echo ${USER}:${USER} | chpasswd &&  \
       adduser ${USER} sudo
 
-COPY user-mapping.sh /
-RUN  chmod u+x user-mapping.sh
+ADD /source /source
+ADD /build /build
 
 RUN apt-get install -y \
       gcc g++
 
-ENTRYPOINT ["/user-mapping.sh"]
+WORKDIR /build
+
+RUN make
+
+CMD ["./main.exe"]
