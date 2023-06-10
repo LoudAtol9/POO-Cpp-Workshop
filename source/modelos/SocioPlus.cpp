@@ -2,6 +2,9 @@
 
 SocioPlus::SocioPlus()
 {
+    SocioPlus::listaEndereco.setSize(sizeof(Endereco));
+	SocioPlus::pessoasIndicadas.setSize(sizeof(Pessoa));
+
     SocioPlus::valorExtra = 5.0;
     SocioPlus::valorInicial = 50.0;
     SocioPlus::limiteIndicacao = 3;
@@ -10,6 +13,9 @@ SocioPlus::SocioPlus()
 
 SocioPlus::SocioPlus(std::string nome, std::string cpf)
 {
+    SocioPlus::listaEndereco.setSize(sizeof(Endereco));
+	SocioPlus::pessoasIndicadas.setSize(sizeof(Pessoa));
+
     SocioPlus::nome = nome;
     SocioPlus::cpf = cpf;
     SocioPlus::valorExtra = 5.0;
@@ -45,5 +51,5 @@ SocioPlus::SocioPlus(SocioTorcedor* s)
 
 SocioPlus::~SocioPlus()
 {
-    SocioPlus::~SocioTorcedor();
+
 }

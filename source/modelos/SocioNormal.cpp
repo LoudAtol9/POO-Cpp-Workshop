@@ -45,7 +45,7 @@ SocioNormal::SocioNormal(SocioTorcedor* s)
 
 SocioNormal::~SocioNormal()
 {
-    SocioNormal::~SocioTorcedor();
+    
 }
 
 

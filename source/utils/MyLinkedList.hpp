@@ -33,15 +33,17 @@ private:
         char* char_ptr_copy = (char*) malloc(MyLinkedList::size);
 
         if (i >= razao)
+        {
             free(char_ptr_copy);
             return NULL;
+        }
         
         for (i = 0; i < razao; i++)
-        {
+        { 
             char_ptr_copy[i] = char_ptr[i];
         }
 
-        return (void*) char_ptr_copy;
+        return char_ptr_copy;
     }
 
 public:

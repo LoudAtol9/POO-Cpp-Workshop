@@ -2,6 +2,9 @@
 
 SocioVIP::SocioVIP()
 {
+    SocioVIP::listaEndereco.setSize(sizeof(Endereco));
+	SocioVIP::pessoasIndicadas.setSize(sizeof(Pessoa));
+
     SocioVIP::valorExtra = 3.0;
     SocioVIP::valorInicial = 50.0;
     SocioVIP::limiteIndicacao = 1;
@@ -10,6 +13,9 @@ SocioVIP::SocioVIP()
 
 SocioVIP::SocioVIP(std::string nome, std::string cpf)
 {
+    SocioVIP::listaEndereco.setSize(sizeof(Endereco));
+	SocioVIP::pessoasIndicadas.setSize(sizeof(Pessoa));
+
     SocioVIP::nome = nome;
     SocioVIP::cpf = cpf;
     SocioVIP::valorExtra = 3.0;
@@ -44,5 +50,5 @@ SocioVIP::SocioVIP(SocioTorcedor* s)
 
 SocioVIP::~SocioVIP()
 {
-    SocioVIP::~SocioTorcedor();
+    
 }

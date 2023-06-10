@@ -104,22 +104,7 @@ Endereco Pessoa::getEndereco(int index)
 
 MyLinkedList Pessoa::getListaEndereco()
 {
-    int i;
-    int len = Pessoa::listaEndereco.getlength(); 
-
-    Endereco* ptr_endereco;
-    Endereco* ptr_endereco_copy;
-
-    MyLinkedList listRetorno(sizeof(Endereco));
-
-    for (i = 0; i <= len; i++)
-    {
-        ptr_endereco = (Endereco*) listaEndereco.busca(i);
-        ptr_endereco_copy = new Endereco(ptr_endereco);
-        listRetorno.insere(ptr_endereco_copy);
-    }
-
-    return listRetorno;
+    return Pessoa::listaEndereco.deepCopy();
 }
 
 

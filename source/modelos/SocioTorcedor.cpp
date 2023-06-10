@@ -1,17 +1,22 @@
 #include "../modelos/SocioTorcedor.hpp"
 
 
-SocioTorcedor::SocioTorcedor(){}
+SocioTorcedor::SocioTorcedor()
+{
+	SocioTorcedor::listaEndereco.setSize(sizeof(Endereco));
+	SocioTorcedor::pessoasIndicadas.setSize(sizeof(Pessoa));
+}
 
 SocioTorcedor::SocioTorcedor(std::string nome, std::string cpf)
 {
+	SocioTorcedor::listaEndereco.setSize(sizeof(Endereco));
+	SocioTorcedor::pessoasIndicadas.setSize(sizeof(Pessoa));
 	SocioTorcedor::setNome(nome);
 	SocioTorcedor::setCpf(cpf);
 }
 
 SocioTorcedor::~SocioTorcedor()
 {
-	SocioTorcedor::~Pessoa();
 	SocioTorcedor::pessoasIndicadas.~MyLinkedList();
 }
 
@@ -64,7 +69,7 @@ void SocioTorcedor::setDataIngresso(Data data)
 
 Pessoa SocioTorcedor::getPessoaIndicada(int index)
 {
-	if (index < 0 || index > SocioTorcedor::pessoasIndicadas.getlength())
+	if (index < 0 || index >= SocioTorcedor::pessoasIndicadas.getlength())
 	{
 		Pessoa elem_error;
 		std::cout << "Error: (SocioTorcedor::getPessoaIndicada) index out of range" << std::endl;

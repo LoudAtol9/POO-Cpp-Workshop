@@ -75,7 +75,7 @@ void MyLinkedList::insere(void* info_ptr)
     {
         for (ptr = MyLinkedList::head; ptr->prox != NULL; ptr = ptr->prox);
         ptr->prox = new_ptr;
-    }  
+    }
 
     MyLinkedList::length++;
 }
@@ -212,5 +212,5 @@ void MyLinkedList::setSize(size_t tipo)
     if (MyLinkedList::size == 0)
         MyLinkedList::size = tipo;
     else
-        std::cout << "Erro: (MyLinkedList::setSize) " << std::endl; 
+        ; 
 }
