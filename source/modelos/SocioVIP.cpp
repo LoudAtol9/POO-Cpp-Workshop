@@ -44,7 +44,7 @@ SocioVIP::SocioVIP(SocioTorcedor* s)
 
     SocioVIP::valorExtra = 3.0;
     SocioVIP::valorInicial = 50.0;
-    SocioVIP::limiteIndicacao = 0;
+    SocioVIP::limiteIndicacao = 1;
     SocioVIP::calculaValorFinal();
 }
 

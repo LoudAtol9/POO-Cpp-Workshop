@@ -72,6 +72,7 @@ Pessoa SocioTorcedor::getPessoaIndicada(int index)
 	if (index < 0 || index >= SocioTorcedor::pessoasIndicadas.getlength())
 	{
 		Pessoa elem_error;
+		Pessoa::nome = "404";
 		std::cout << "Error: (SocioTorcedor::getPessoaIndicada) index out of range" << std::endl;
 		return elem_error;
 	}
@@ -87,7 +88,12 @@ Pessoa SocioTorcedor::getPessoaIndicada(int index)
 void SocioTorcedor::setPessoaIndicada(Pessoa Indicada)
 {
 	if (SocioTorcedor::pessoasIndicadas.getlength() == SocioTorcedor::limiteIndicacao)
-		std::cout << "Ja atingiu o limite de pessoas indicadas";
+	{
+		std::cout << "Ja atingiu o limite de pessoas indicadas" << std::endl;
+		return;
+	}
+	if (Indicada.getNome() == "404")
+		return;
 	
 	Pessoa* new_ptr = new Pessoa(&Indicada);
     SocioTorcedor::pessoasIndicadas.insere(new_ptr);

@@ -87,8 +87,10 @@ int main()
      */
     SocioVIP s5(&s1);
 
-    sizeof(SocioPlus);
-    sizeof(SocioNormal);
-    sizeof(SocioVIP);
-    sizeof(SocioTorcedor);
+    /*
+     * Como Socio Normal não possui pessoas para indicar
+     * Geramos um erro na busca, porém o programa trata o erro
+     * e não teremos problema na transformação
+     */
+
 }
