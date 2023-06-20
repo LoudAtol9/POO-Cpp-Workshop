@@ -27,7 +27,14 @@ As biblotecas do C++:
 - regex
 
 A ferramenta para gerar umls:
+- Adobe Ilustrator
 
+O IDE usado para o desenvolvimento:
+- Visual Studio Code (.rpm)
+
+O Sistema Operacional usado:
+- Fedora 38 
+- Ubuntu 22.04 (imagem do Docker)
 
 ## Autores
 - André Mendonça Morato Pupin
